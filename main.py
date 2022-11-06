@@ -29,5 +29,15 @@ headers = {
     "X-USER-TOKEN": TOKEN
 }
 
-response = requests.post(url=graph_endpoint, json=graph_config, headers=headers)
+# response = requests.post(url=graph_endpoint, json=graph_config, headers=headers)
+# print(response.text)
+
+pixel_endpoint = f"{graph_endpoint}/{graph_config['id']}"
+
+pixel_config = {
+    "date": "20221106",
+    "quantity": "1",
+}
+
+response = requests.post(url=pixel_endpoint, json=pixel_config, headers=headers)
 print(response.text)
